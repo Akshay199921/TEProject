@@ -5,10 +5,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
 import * as Animatable from 'react-native-animatable';
-import {Formik} from 'formik';
-import * as yup from 'yup';
 
-import SignInForm from './SignInForm';
+
+
 
 
 const SignInScreen = ({navigation})  =>{
@@ -50,7 +49,7 @@ const SignInScreen = ({navigation})  =>{
     }
 
     const signInHandler = ()=>{
-        navigation.navigate('AllProducts')
+        navigation.navigate('RecommendedProducts')
         
     }
     return (
@@ -150,20 +149,15 @@ const SignInScreen = ({navigation})  =>{
                     <Text style={[styles.textSign,{color: '#9E90A2'}]} >SignUp Now</Text>   
                 </TouchableOpacity>
                 
-                {/* <View style={styles.otherOptions}>
+                <View style={styles.otherOptions}>
                     
                         <View style={styles.facebook}>
-                            <TouchableOpacity onPress={()=>navigation.navigate('AfterFacebookLogin')} >
-                                <Text style={styles.facebookText}>Sign In with FaceBook</Text>  
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.google}>
-                            <TouchableOpacity>
-                                <Text style={styles.googleText}>Sign In with Google</Text>
+                            <TouchableOpacity onPress={()=>navigation.navigate('ForgotPassword')} >
+                                <Text style={styles.facebookText}>Forgot Password</Text>  
                             </TouchableOpacity>
                         </View>
                     
-                </View> */}
+                </View>
                 
             </Animatable.View>
             

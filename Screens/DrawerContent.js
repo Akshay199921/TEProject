@@ -11,9 +11,6 @@ import { Avatar, Paragraph, TouchableRipple , Title,
   Text,
   Switch} from 'react-native-paper';
 
-import ProfileScreen from "./ProfileScreen";
-import SettingScreen from './SettingsScreen';
-import SupportScreen from "./SupportScreen";
 
 
 
@@ -45,19 +42,13 @@ function DrawerContent(props) {
                <Drawer.Section style={styles.drawerSection} >
                    <DrawerItem 
                    icon={({color,size}) =>(
-                     <Icons name="account-details" color={color} size={size} /> 
+                     <Icons name="account-details-outline" color={color} size={size} /> 
                    )}
                    label="User Details"  
                    onPress={()=> {props.navigation.navigate('UserDetails')}} 
                    />
  
-                   <DrawerItem 
-                   icon={({color,size}) =>(
-                     <Icons name="onepassword" color={color} size={size} /> 
-                   )}
-                   label="Forgot Password"  
-                   onPress={()=> {props.navigation.navigate('ForgotPassword')}}
-                   />
+                  
  
                    <DrawerItem 
                    icon={({color,size}) =>(
@@ -65,6 +56,14 @@ function DrawerContent(props) {
                    )}
                    label="Update Password"  
                    onPress={()=> {props.navigation.navigate('UpdatePassword')}}
+                   />
+
+                   <DrawerItem 
+                   icon={({color,size}) =>(
+                     <Icons name="page-previous-outline" color={color} size={size} /> 
+                   )}
+                   label="Previous Buys"  
+                   onPress={()=> {props.navigation.navigate("PreviousBuys")}}
                    />
  
                    {/* <DrawerItem 

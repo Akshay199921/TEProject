@@ -30,7 +30,7 @@ function ForgotPassword({navigation}) {
 
             <Button title="Confirm" color="#800000" />
         </View>
-        <Button title="Go back to products" color="gray" onPress={()=> navigation.navigate("AllProducts")} />
+        <Button title="Return" color="gray" onPress={()=> navigation.navigate("SignInScreen")} />
         
 
 

@@ -27,7 +27,7 @@ function UpdatePassword({navigation}) {
 
 
 
-                    <Button title="Update" color="green" />
+                    <Button title="Update" color="#800000" />
                 </View>
                 <Button title="Go back to products" color="gray" onPress={()=> navigation.navigate("AllProducts")} />
                 

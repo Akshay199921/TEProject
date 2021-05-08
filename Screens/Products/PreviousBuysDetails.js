@@ -1,41 +1,43 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icons from "react-native-vector-icons/Ionicons";
 
 import {Text, View, StyleSheet, FlatList, Image, Button,StatusBar, TouchableOpacity, TextInput} from 'react-native';
-import Card from "./Card"
+import Card from "../cart/Card"
 
+const img1 = require("../../assets/amulbutter.png")
+const img2 = require("../../assets/amulmilk.png")
 
-
-
-export  default class Cart extends Component {
+export class PreviousBuysDetails extends Component {
     constructor(props) {
         super(props)
-    
-        this.state = {
-             data: [],
-             refreshing : true
-        }
     }
-
-    componentDidMount(){
-        this.fetchProducts();
-    }
-
-    fetchProducts() {
-        this.setState({ refreshing: true });
-        fetch('https://storeway-app.herokuapp.com/api/v1/products')
-            .then(res => res.json())
-            .then(resJson => {
-                this.setState({ data: resJson.data.products });
-                this.setState({ refreshing: false });
-                // console.log(resJson.data.products)
-            }).catch(e => console.log(e));
-    }
-
     
-    
-    renderItemComponent = (data) => {
+
+    ProductDetails= [
+        {
+            id: "1",
+           name: 'Amul Butter',
+           image: img1,
+           weight: '100gm',
+           Price: "35 Rs",
+           quantity: 2
+
+        },
+        {
+            id: '2',
+           name: 'Amul Milk',
+           image: img2,
+           weight: '1L',
+           Price: "20 Rs",
+           quantity: 5
+
+        },
+
+
+    ]
+
+    renderItemComponent = ({item}) => {
         return (
       <View>
         <Card>
@@ -44,23 +46,25 @@ export  default class Cart extends Component {
                     <View style={styles.imageSec} >
                         <Image  
                         style={{height: 50,width: 50}}
-                        source= {{uri: data.item.productImage}}
+                        source= {item.image}
                         />
                     </View>
                     <View style={styles.itemDesc} >
                         <View  style={styles.nameContainer} >
-                            <Text style={styles.Name}> {data.item.name}</Text>
+                            <Text style={styles.Name}> {item.name}</Text>
                         </View>
                         <View style={styles.itemDetails}>
                             <View style={styles.quantityLogo} >
                                 <View style={{justifyContent: 'center'}}>
-                                    <Text style={styles.itemtext}>Quantity:  </Text>
+                                    <Text style={styles.itemtext}>Weight: {item.weight} </Text>
+                                </View>
+                                <View style={{justifyContent: 'center'}}>
+                                    <Text style={styles.itemtext}>Quantity: {item.quantity} </Text>
+                                </View>
+                                <View style={{justifyContent: 'center'}}>
+                                    <Text style={styles.itemtext}>Price: {item.Price} </Text>
                                 </View>
                                 
-                                <View style={{justifyContent: 'center'}} >
-                                    <TextInput style={styles.quantity} keyboardType='numeric' />
-                                    {/* <Text style={styles.quantity} >{data.item.quantity}</Text> */}
-                                </View>
                                 
                             </View>
                         </View>
@@ -82,24 +86,20 @@ export  default class Cart extends Component {
     }
 
 
-
     render() {
-        
         return (
-            
-        <View style={styles.container} >
-            {/* <StatusBar backgroundColor="#9E90A2" barStyle="light-content" /> */}
+            <View style={styles.container} >
             <View  style={styles.Heading}>    
                  <View style={{position: 'absolute', left: 1,opacity: 0.4,}} >
                     <Icons.Button name="arrow-back" size={25} backgroundColor="#9E90A2" color="crimson"
-                        onPress={() => this.props.navigation.navigate("AllProducts")}></Icons.Button>
+                        onPress={() => this.props.navigation.goBack()}></Icons.Button>
                 </View>
                 <Icon name='shopping-cart' color='crimson'  size={20} ></Icon>           
-                <Text style={styles.HeadingText} >Cart</Text>
+                <Text style={styles.HeadingText} >Previous Order Detail</Text>
             </View>
             <FlatList 
-            data={this.state.data}
-            renderItem={(item)=>this.renderItemComponent(item)}
+            data={this.ProductDetails}
+            renderItem={this.renderItemComponent}
             keyExtractor={item => item.id}
             />
             <View style={styles.amountContainer}>
@@ -114,22 +114,25 @@ export  default class Cart extends Component {
                 </View>
             </View>
             <View style={styles.bottom}>
-                <Button title="Pay Online" color="#10564F" onPress={() => this.props.navigation.push('Cart')} />
+                <Button title="Buy Again" color="skyblue" onPress={() => this.props.navigation.push('Cart')} />
             </View>
             
             
         </View>
-    )
+        )
+    }
 }
-}
+
+
+export default PreviousBuysDetails
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
     //   alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#9E90A2'
+    //   backgroundColor: '#9E90A2'
     },
     Heading:{
         backgroundColor: '#fff',
@@ -171,8 +174,7 @@ const styles = StyleSheet.create({
 
     },
     itemDetails:{
-        // alignItems: 'center',
-        // justifyContent: "center"
+
     },
     imageSec: {
         // borderWidth: 1,
@@ -185,8 +187,8 @@ const styles = StyleSheet.create({
         shadowColor: '#333',
         shadowOpacity: 0.3,
         shadowRadius: 2 ,
-        height: 80,
-        width: 80,
+        height: 60,
+        width: 60,
 
     },
     button:{
@@ -199,13 +201,13 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: '#333',
+        color: 'green'
     },
     bottom:{
-        backgroundColor: '#F1F0FF',
-        marginBottom: 0.5
+        backgroundColor: '#F1F0FF'
     },
     quantityLogo:{
-        flexDirection: 'row'
+        flexDirection: 'column'
     },
     icon:{
         borderWidth: 1,
@@ -227,7 +229,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         backgroundColor: '#A3C1AD',
         borderWidth: 1,
-        borderColor: 'white',
+        borderColor: '#333',
         padding: 10
     },
     amountText:{

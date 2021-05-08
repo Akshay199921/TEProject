@@ -100,7 +100,7 @@ export default class AllProducts extends Component {
             keyExtractor={item => item.id}
             />
             <View style={styles.bottom}>
-                <Button title="Go to cart" color="#800000" onPress={() => this.props.navigation.navigate('Cart')} />
+                <Button title="Go to cart" color="#10564F" onPress={() => this.props.navigation.navigate('Cart')} />
             </View>
             
             
@@ -181,6 +181,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#de5d83'
     },
     bottom:{
-        backgroundColor: '#F1F0FF'
+        backgroundColor: '#F1F0FF',
+        marginBottom: 0
     }
 })

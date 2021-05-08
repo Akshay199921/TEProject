@@ -10,12 +10,11 @@ import RootStackScreen from './Screens/RootStackScreen';
 
 
 import DrawerContent from "./Screens/DrawerContent";
-import SupportScreen from './Screens/SupportScreen';
-import SettingScreen from './Screens/SettingsScreen';
-import BookmarkScreen from './Screens/BookmarkScreen';
 import UserDetails from './Screens/Users/UserDetails';
 import UpdatePassword from "./Screens/Users/UpdatePassword";
 import ForgotPassword from "./Screens/Users/ForgotPassword";
+import PreviousBuys from "./Screens/Products/PreviousBuys";
+import PreviousBuysDetails from "./Screens/Products/PreviousBuysDetails";
 
 
 const Drawer = createDrawerNavigator();
@@ -29,6 +28,8 @@ export default function App() {
         <Drawer.Screen name="UserDetails" component={UserDetails} />
         <Drawer.Screen name="UpdatePassword" component={UpdatePassword} />
         <Drawer.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Drawer.Screen name="PreviousBuys" component={PreviousBuys} />
+        <Drawer.Screen name="PreviousBuysDetails" component={PreviousBuysDetails} />
 
       </Drawer.Navigator>
     </NavigationContainer>

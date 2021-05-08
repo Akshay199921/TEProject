@@ -7,7 +7,9 @@ import SignInScreen from './SignInScreen';
 import SignUpScreen from './SignUpScreen';
 import AllProducts from "./Products/AllProducts";
 import Cart from "./cart/Cart";
-// import UserDetails  from "./Users/UserDetails"
+import ForgotPassword from "./Users/ForgotPassword";
+import RecommendedProducts from "./Products/RecommendedProducts";
+
 
 const RootStack = createStackNavigator()
 
@@ -19,7 +21,8 @@ const RootStackScreen= ({navigation}) => {
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
         <RootStack.Screen name="AllProducts" component={AllProducts} />
         <RootStack.Screen name="Cart" component={Cart} />
-        {/* <RootStack.Screen name="UserDetails" component={UserDetails} /> */}
+        <RootStack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <RootStack.Screen name="RecommendedProducts" component={RecommendedProducts} />
     </RootStack.Navigator>
     )
     
