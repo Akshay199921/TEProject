@@ -65,6 +65,22 @@ function DrawerContent(props) {
                    label="Previous Buys"  
                    onPress={()=> {props.navigation.navigate("PreviousBuys")}}
                    />
+
+                   <DrawerItem 
+                   icon={({color,size}) =>(
+                     <Icons name="cards-variant" color={color} size={size} /> 
+                   )}
+                   label="Product Category"  
+                   onPress={()=> {props.navigation.navigate("ProductCategory")}}
+                   />
+
+                   
+                   <DrawerItem 
+                   icon={({color,size}) =>(
+                     <Icons name="barcode-scan" color={color} size={size} /> 
+                   )}
+                   label="Scan Product"  
+                   />
  
                    {/* <DrawerItem 
                    icon={({color,size}) =>(

@@ -13,6 +13,8 @@ const img2 = require("../../assets/amulmilk.png")
 const img3 = require("../../assets/smilebaal.png")
 const img4 = require("../../assets/Akshay.jpg")
 
+const smartShopImage = require("../../assets/smart1.jpg")
+
 const Products  = [
     {
         id: "1",
@@ -77,18 +79,8 @@ function RecommendedProducts({navigation}) {
                 </Animatable.View>
             </Animatable.View>
 
-            <Animatable.View style={styles.Offers} animation='bounceInRight'>
-                <View style={styles.textCategory}>
-                    <Text style={styles.textCategoryText}>Offer Products</Text>
-                </View>
-                <Animatable.View  animation='bounceInRight' duration={4500}> 
-                    <FlatList 
-                    data={Products}
-                    horizontal
-                    renderItem={renderRecommendedItemComponent}
-                    />
-
-                </Animatable.View>
+            <Animatable.View style={styles.Offers} animation='bounceIn'>
+                <Image source={smartShopImage} style={{width: Width, height: Height/3}} />
             </Animatable.View>
         </View>
             <View style={styles.footer}>

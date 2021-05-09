@@ -9,6 +9,7 @@ import AllProducts from "./Products/AllProducts";
 import Cart from "./cart/Cart";
 import ForgotPassword from "./Users/ForgotPassword";
 import RecommendedProducts from "./Products/RecommendedProducts";
+import AfterPayOnline from "./cart/AfterPayOnline";
 
 
 const RootStack = createStackNavigator()
@@ -23,6 +24,7 @@ const RootStackScreen= ({navigation}) => {
         <RootStack.Screen name="Cart" component={Cart} />
         <RootStack.Screen name="ForgotPassword" component={ForgotPassword} />
         <RootStack.Screen name="RecommendedProducts" component={RecommendedProducts} />
+        <RootStack.Screen name="AfterPayOnline" component={AfterPayOnline} />
     </RootStack.Navigator>
     )
     

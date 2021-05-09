@@ -52,7 +52,8 @@ export default SplashScreen
 
 
   const {height} = Dimensions.get("screen");
-  const height_logo = height * 0.28;
+  const width_logo = height * 0.28;
+  const height_logo = height * 0.40;
   
   const styles = StyleSheet.create({
     container: {
@@ -73,7 +74,7 @@ export default SplashScreen
         paddingHorizontal: 30
     },
     logo: {
-        width: height_logo,
+        width:  width_logo,
         height: height_logo,
         borderRadius: 6,
     },

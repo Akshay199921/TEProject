@@ -15,6 +15,7 @@ import UpdatePassword from "./Screens/Users/UpdatePassword";
 import ForgotPassword from "./Screens/Users/ForgotPassword";
 import PreviousBuys from "./Screens/Products/PreviousBuys";
 import PreviousBuysDetails from "./Screens/Products/PreviousBuysDetails";
+import ProductCategory from "./Screens/Products/ProductCategory";
 
 
 const Drawer = createDrawerNavigator();
@@ -30,6 +31,7 @@ export default function App() {
         <Drawer.Screen name="ForgotPassword" component={ForgotPassword} />
         <Drawer.Screen name="PreviousBuys" component={PreviousBuys} />
         <Drawer.Screen name="PreviousBuysDetails" component={PreviousBuysDetails} />
+        <Drawer.Screen name="ProductCategory" component={ProductCategory} />
 
       </Drawer.Navigator>
     </NavigationContainer>

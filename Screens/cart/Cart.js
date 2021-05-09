@@ -57,9 +57,15 @@ export  default class Cart extends Component {
                                     <Text style={styles.itemtext}>Quantity:  </Text>
                                 </View>
                                 
-                                <View style={{justifyContent: 'center'}} >
-                                    <TextInput style={styles.quantity} keyboardType='numeric' />
-                                    {/* <Text style={styles.quantity} >{data.item.quantity}</Text> */}
+                                <View style={{justifyContent: 'center',flexDirection:'row'}} >
+                                    <View style={{justifyContent: 'center'}}>
+                                        <Icon name="add-circle" size={20} color='green' /> 
+                                    </View>
+                                    {/* <TextInput style={styles.quantity} keyboardType='numeric' /> */}
+                                    <Text style={styles.quantity} >{data.item.quantity}</Text>
+                                    <View style={{justifyContent: 'center'}}>
+                                        <Icon name="remove-circle" size={20} color='red' /> 
+                                    </View>
                                 </View>
                                 
                             </View>
@@ -114,7 +120,7 @@ export  default class Cart extends Component {
                 </View>
             </View>
             <View style={styles.bottom}>
-                <Button title="Pay Online" color="#10564F" onPress={() => this.props.navigation.push('Cart')} />
+                <Button title="Pay Online" color="#10564F" onPress={() => this.props.navigation.navigate('AfterPayOnline')} />
             </View>
             
             
@@ -219,7 +225,8 @@ const styles = StyleSheet.create({
         color: 'green',
         borderBottomWidth: 3,
         borderBottomColor: '#333',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        margin: 3
     },
     amountContainer:{
         alignItems: 'flex-end',

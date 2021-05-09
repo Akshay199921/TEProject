@@ -12,7 +12,7 @@ export class PreviousBuysDetails extends Component {
     constructor(props) {
         super(props)
     }
-    
+    id = this.props.route.params;
 
     ProductDetails= [
         {
@@ -96,6 +96,7 @@ export class PreviousBuysDetails extends Component {
                 </View>
                 <Icon name='shopping-cart' color='crimson'  size={20} ></Icon>           
                 <Text style={styles.HeadingText} >Previous Order Detail</Text>
+                
             </View>
             <FlatList 
             data={this.ProductDetails}
